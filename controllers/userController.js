@@ -4,6 +4,9 @@ const userController = {
   // Get all users
   getUsers(req, res) {
     // find() on User
+    User.find()
+    .then((users) => res.status(200).json(users))
+    .catch((err) => res.status(500).json(err));
   },
 
   // Get a single user
@@ -16,6 +19,12 @@ const userController = {
   // create a new user
   createUser(req, res) {
     // create on User
+    User.create(req.body)
+    .then((user) => res.status(200).json(user))
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json(err);
+    });
   },
 
   // update a user
