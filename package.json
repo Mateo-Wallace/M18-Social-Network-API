@@ -1,20 +1,30 @@
 {
-  "name": "28-Stu_Mini-Project",
-  "version": "1.0.1",
-  "description": "Mongoose back-end project - Develop",
-  "main": "index.js",
-  "license": "MIT",
+  "name": "m18-social-network-api",
+  "version": "1.0.0",
+  "description": "Mongoose social network api",
+  "main": "server.js",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index",
+    "start": "node server.js",
     "seed": "node utils/seed",
     "heroku-postbuild": "node utils/seed.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mateo-Wallace/M18-Social-Network-API.git"
+  },
+  "keywords": [
+    "Mongoose",
+    "MongoDB",
+    "Express"
+  ],
+  "author": "Mateo Wallace",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mateo-Wallace/M18-Social-Network-API/issues"
+  },
+  "homepage": "https://github.com/Mateo-Wallace/M18-Social-Network-API#readme",
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^6.0.13"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.9"
   }
 }
