@@ -3,5 +3,10 @@
     - [ ] addFriend
     - [ ] removeFriend
 - [ ] controllers/thoughtController
+    - [ ] createThought
+    - [ ] updateThought
+    - [ ] deleteThought
+    - [ ] addReaction
+    - [ ] removeReaction
 - [ ] date format on Reaction and Thought Models. This is created in the utils folder
 - [x] seed data???
