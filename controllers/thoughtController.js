@@ -1,57 +1,47 @@
 // ObjectId() method for converting studentId string into an ObjectId for querying database
 const { ObjectId } = require('mongoose').Types;
-const { Course, Student } = require('../models');
+const { Thought, User } = require('../models');
 
-module.exports = {
-  // Get all courses
-  getCourses(req, res) {
-    Course.find()
-      .then((courses) => res.json(courses))
-      .catch((err) => res.status(500).json(err));
+const thoughtController = {
+  // Get all thoughts
+  getThoughts(req, res) {
+    // find() on Thought
   },
-  // Get a course
-  getSingleCourse(req, res) {
-    Course.findOne({ _id: req.params.courseId })
-      .select('-__v')
-      .then((course) =>
-        !course
-          ? res.status(404).json({ message: 'No course with that ID' })
-          : res.json(course)
-      )
-      .catch((err) => res.status(500).json(err));
+
+  // Get a single thought
+  getSingleThought(req, res) {
+    // findOne() on Thought
   },
-  // Create a course
-  createCourse(req, res) {
-    Course.create(req.body)
-      .then((course) => res.json(course))
-      .catch((err) => {
-        console.log(err);
-        return res.status(500).json(err);
-      });
+
+  // create a new thought
+  createThought(req, res) {
+    // create on Thought
   },
-  // Delete a course
-  deleteCourse(req, res) {
-    Course.findOneAndDelete({ _id: req.params.courseId })
-      .then((course) =>
-        !course
-          ? res.status(404).json({ message: 'No course with that ID' })
-          : Student.deleteMany({ _id: { $in: course.students } })
-      )
-      .then(() => res.json({ message: 'Course and students deleted!' }))
-      .catch((err) => res.status(500).json(err));
+
+  // update a thought
+  updateThought(req, res) {
+    // findOneAndUpdate
   },
-  // Update a course
-  updateCourse(req, res) {
-    Course.findOneAndUpdate(
-      { _id: req.params.courseId },
-      { $set: req.body },
-      { runValidators: true, new: true }
-    )
-      .then((course) =>
-        !course
-          ? res.status(404).json({ message: 'No course with this id!' })
-          : res.json(course)
-      )
-      .catch((err) => res.status(500).json(err));
+
+  // delete a thought
+  deleteThought(req, res) {
+    // findOneAndDelete
+    // example says findOneAndRemove
+  },
+
+  // add a reaction to a thought
+  addReaction(req, res) {
+    // findOneAndUpdate
+    // use $addToSet - reference activity 23, controllers/postController
+    // check out how it's being used in the createPost
+  },
+
+  // Remove reaction from a thought
+  removeReaction(req, res) {
+    // findOneAndUpdate
+    // use $pull
   },
 };
+
+
+module.exports = thoughtController

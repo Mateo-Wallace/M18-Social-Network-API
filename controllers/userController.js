@@ -1,4 +1,4 @@
-const { Student, Course } = require('../models');
+const { User, Thought } = require('../models');
 
 const userController = {
   // Get all users
