@@ -22,7 +22,6 @@ connection.once('open', async () => {
   // THOUGHTS REQUIRED AND CREATED IN DATA.JS
 
   // Log out the seed data to indicate what should appear in the database
-  console.table(students);
   console.info('Seeding complete! 🌱');
   process.exit(0);
 });
