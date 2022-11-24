@@ -5,8 +5,8 @@ const userController = {
   getUsers(req, res) {
     // find() on User
     User.find()
-    .then((users) => res.status(200).json(users))
-    .catch((err) => res.status(500).json(err));
+      .then((users) => res.status(200).json(users))
+      .catch((err) => res.status(500).json(err));
   },
 
   // Get a single user
@@ -15,31 +15,42 @@ const userController = {
     // use .populate to populate friends and thoughts for that User
     // ex: .populate('friends')
     User.findOne({ _id: req.params.userId })
-    .select('-__v')
-    .populate('friends')
-    .populate('thoughts')
-    .then((user) =>
-      !user
-        ? res.status(404).json({ message: 'No user with that ID' })
-        : res.status(200).json(user)
-    )
-    .catch((err) => res.status(500).json(err));
+      .select('-__v')
+      .populate('friends')
+      .populate('thoughts')
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: 'No user with that ID' })
+          : res.status(200).json(user)
+      )
+      .catch((err) => res.status(500).json(err));
   },
 
   // create a new user
   createUser(req, res) {
     // create on User
     User.create(req.body)
-    .then((user) => res.status(200).json(user))
-    .catch((err) => {
-      console.log(err);
-      return res.status(500).json(err);
-    });
+      .then((user) => res.status(200).json(user))
+      .catch((err) => {
+        console.log(err);
+        return res.status(500).json(err);
+      });
   },
 
   // update a user
   updateUser(req, res) {
     // findOneAndUpdate
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $set: req.body },
+      { runValidators: true, new: true }
+    )
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: 'No user with this id!' })
+          : res.status(200).json(user)
+      )
+      .catch((err) => res.status(500).json(err));
   },
 
   // Delete a user and associated thoughts
