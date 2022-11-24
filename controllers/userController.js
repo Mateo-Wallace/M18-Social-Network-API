@@ -56,6 +56,14 @@ const userController = {
   // Delete a user and associated thoughts
   deleteUser(req, res) {
     // findOneAndDelete
+    User.findOneAndDelete({ _id: req.params.userId })
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: 'No user with that ID' })
+          : Thought.deleteMany({ _id: { $in: user.thoughts } })
+      )
+      .then(() => res.status(200).json({ message: 'User and thoughts deleted!' }))
+      .catch((err) => res.status(500).json(err));
   },
 
   // Add friend to friend list
