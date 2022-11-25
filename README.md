@@ -39,7 +39,7 @@ While building this project I learned to:
 
 ### Video Walkthrough
 
-For an example of the application at work see the [Video Walkthrough](#)
+For an example of the application at work see the [Video Walkthrough](https://drive.google.com/file/d/1RJ0tgrbb54iNjdfBRPj5AQ04A1TZf04t/view)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -62,8 +62,6 @@ These commands will give you data of a specified ID. Edit the `:id` in the link 
 
 - `http://localhost:3001/api/users/:userId` to view a specific user
 - `http://localhost:3001/api/thoughts/:thoughtId` to view a specific thought
-
-![example get request](./assets/insomniaGet.png)
 
 ### Post Requests
 
@@ -106,8 +104,6 @@ Post requests are used to add new information. The following commands will Post 
         }
         ```
 
-![example post request](./assets/insomniaPost.png)
-
 ### Put Requests
 
 Put requests are used to update information. The following commands will Put data to a specific item in a specific type. Edit the `:id` in the link to the id of the item you would like to update.
@@ -128,8 +124,6 @@ Put requests are used to update information. The following commands will Put dat
         }
         ```
 
-![example put request](./assets/insomniaPut.png)
-
 ### Delete Requests
 
 Pelete requests are used to destroy information. The following commands will Delete a specific item. Edit the `:id` in the link to the id of the item you would like to delete.
@@ -139,7 +133,6 @@ Pelete requests are used to destroy information. The following commands will Del
 - `http://localhost:3001/api/thoughts/:thoughtId` to delete a specific thought
 - `http://localhost:3001/api/thoughts/:thoughtId/reactions/:reactionId` to delete a specific reaction from a specific thought
 
-![example delete request](./assets/insomniaDelete.png)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## License
