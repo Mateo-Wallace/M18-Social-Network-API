@@ -94,6 +94,17 @@ const thoughtController = {
     // findOneAndUpdate
     // use $addToSet - reference activity 23, controllers/postController
     // check out how it's being used in the createPost
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $addToSet: { reactions: req.body } },
+      { runValidators: true, new: true }
+    )
+      .then((thought) =>
+        !thought
+          ? res.status(404).json({ message: 'No thought with this id!' })
+          : res.status(200).json(thought)
+      )
+      .catch((err) => res.status(500).json(err));
   },
 
   // Remove reaction from a thought
