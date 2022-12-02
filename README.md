@@ -2,7 +2,7 @@
 
 [![License Shield](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)](./LICENSE) [![LinkedIn Shield](https://img.shields.io/badge/LinkedIn-555555?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mateo-wallace/)
 
-# M17 - Social Network API
+# M18 - Social Network API
 
 ## Description
 
